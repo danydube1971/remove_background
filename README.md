@@ -26,7 +26,8 @@ Installation de PyQt5
 ## 4. Lancement du Script
 Pour exécuter le script, ouvrez un terminal et naviguez jusqu'au répertoire où le script est enregistré. 
 Exécutez la commande suivante :
-python Remove_background_7.py
+
+`python Remove_background_7.py`
 
 
 ## 5. Instructions d'Utilisation
