@@ -27,7 +27,7 @@ Installation de PyQt5
 Pour exécuter le script, ouvrez un terminal et naviguez jusqu'au répertoire où le script est enregistré. 
 Exécutez la commande suivante :
 
-`python Remove_background_7.py`
+`python Remove_background.py`
 
 
 ## 5. Instructions d'Utilisation
@@ -70,7 +70,7 @@ Vous pouvez personnaliser l'apparence de l'interface en modifiant les styles des
 
 Par exemple :
 
-`self.setStyleSheet("background-color: #f0f0f0;")  # Couleur de fond
+```self.setStyleSheet("background-color: #f0f0f0;")  # Couleur de fond
 self.select_button.setStyleSheet("""
     QPushButton {
         background-color: #87ceeb;
@@ -82,8 +82,8 @@ self.select_button.setStyleSheet("""
     QPushButton:hover {
         background-color: #00bfff;
     }
-""")`
-
+""")
+```
 
 
 ## Les modèles disponibles pour « rembg » version 2.0.57 sont les suivants :
