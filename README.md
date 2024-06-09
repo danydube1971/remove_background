@@ -11,7 +11,7 @@ Le script "Remove Background" permet de supprimer facilement le fond des images 
  
    • Système d'exploitation : Linux, Windows, ou macOS.
    
-   • Python : Version 3.6 ou supérieure.
+   • Python : Version 3.10 ou supérieure.
    
    • Dépendances :
         ◦ PyQt5
