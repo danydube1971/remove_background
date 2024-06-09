@@ -5,6 +5,7 @@ Le script "Remove Background" permet de supprimer facilement le fond des images 
 
 ![Remove background](https://github.com/danydube1971/remove_background/assets/74633244/b95006a2-c0b2-4c94-b00d-618348ed8634)
 
+### Testé dans Linux Mint 21.3 sous Python 3.11
 
 ## 1. Prérequis
  
