@@ -32,14 +32,14 @@ Exécutez la commande suivante :
 
 ## 5. Instructions d'Utilisation
    
-### 4.1. Sélectionner une Image
+### 5.1. Sélectionner une Image
 
    1. Cliquez sur le bouton "Sélectionner un fichier image".
    2. Une boîte de dialogue s'ouvre pour vous permettre de choisir une image sur votre ordinateur. Les formats pris en charge sont .jpg, .jpeg, et .png.
    3. Après avoir sélectionné l'image, choisissez un dossier de sortie pour enregistrer l'image modifiée.
    4. L'image sélectionnée s'affiche dans la zone de prévisualisation.
          
-### 4.2. Supprimer le Fond de l'Image
+### 5.2. Supprimer le Fond de l'Image
 
    1. Cliquez sur le bouton "Supprimer le fond".
    2. Le script utilise le modèle de suppression de fond pour traiter l'image.
@@ -56,7 +56,7 @@ Le script gère plusieurs erreurs courantes et affiche des messages pour vous ai
    
    • Erreur lors de la Suppression du Fond : Si une erreur survient lors de la suppression du fond, un message d'erreur s'affiche avec les détails de l'erreur.
    
-8. Configuration du Modèle
+## 7. Configuration du Modèle
 Par défaut, le script utilise le modèle u2netp pour la suppression de fond. Vous pouvez changer le modèle en modifiant la ligne suivante dans le script :
 
 `self.session = new_session('u2netp')`
@@ -64,7 +64,7 @@ Par défaut, le script utilise le modèle u2netp pour la suppression de fond. Vo
 
 Remplacez 'u2netp' par le modèle de votre choix, par exemple 'u2net' ou 'deeplabv3'.
 
-## 7. Personnalisation de l'Interface
+## 8. Personnalisation de l'Interface
    
 Vous pouvez personnaliser l'apparence de l'interface en modifiant les styles des boutons et la couleur de fond dans la méthode init_ui. 
 
