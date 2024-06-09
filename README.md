@@ -1,5 +1,5 @@
-# remove_background
-Permet de faire du détourage dans une image automatiquement
+# Remove_background_1.0
+Permet de faire du détourage automatique dans une image
 
 Le script "Remove Background" permet de supprimer facilement le fond des images à l'aide d'un modèle d'intelligence artificielle. Il utilise une interface graphique conviviale qui vous guide tout au long du processus. Vous pouvez sélectionner une image, choisir un dossier de sortie, et supprimer le fond de l'image en quelques clics.
 
