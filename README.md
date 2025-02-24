@@ -1,108 +1,160 @@
-# Remove_background_1.0
-Permet de faire du détourage automatique dans une image
+Remove Background 1.7 - Guide d'utilisation
+===========================================
 
-Le script "Remove Background" permet de supprimer facilement le fond des images à l'aide d'un modèle d'intelligence artificielle. Il utilise une interface graphique conviviale qui vous guide tout au long du processus. Vous pouvez sélectionner une image, choisir un dossier de sortie, et supprimer le fond de l'image en quelques clics.
+Remove Background 1.7 est une application graphique Python qui permet de supprimer l'arrière-plan d'une image et de sauvegarder le résultat au format PNG (raster) ou SVG (vectoriel). Elle utilise rembg pour la suppression du fond et potrace pour la vectorisation en SVG.
 
-![Remove background](https://github.com/danydube1971/remove_background/assets/74633244/b95006a2-c0b2-4c94-b00d-618348ed8634)
-
-### Testé dans Linux Mint 21.3 sous Python 3.11
-
-## 1. Prérequis
- 
-   • Système d'exploitation : Linux, Windows, ou macOS.
-   
-   • Python : Version 3.10 ou supérieure.
-   
-   • Dépendances :
-        ◦ PyQt5
-        ◦ PIL (Pillow)
-        ◦ rembg
-   
-## 2. Installation des Prérequis
-Avant d'utiliser le script, assurez-vous que toutes les dépendances sont installées.
-
-Installation de PyQt5
-`pip install PyQt5 pillow rembg`
-
-## 4. Lancement du Script
-Pour exécuter le script, ouvrez un terminal et naviguez jusqu'au répertoire où le script est enregistré. 
-Exécutez la commande suivante :
-
-`python Remove_background.py`
+![Remove_background](https://github.com/user-attachments/assets/d03fdb4a-71ed-4f5c-ab76-b9a87bba357e)
 
 
-## 5. Instructions d'Utilisation
-   
-### 5.1. Sélectionner une Image
+Fonctionnalités
+---------------
 
-   1. Cliquez sur le bouton "Sélectionner un fichier image".
-   2. Une boîte de dialogue s'ouvre pour vous permettre de choisir une image sur votre ordinateur. Les formats pris en charge sont .jpg, .jpeg, et .png.
-   3. Après avoir sélectionné l'image, choisissez un dossier de sortie pour enregistrer l'image modifiée.
-   4. L'image sélectionnée s'affiche dans la zone de prévisualisation.
-         
-### 5.2. Supprimer le Fond de l'Image
+-   **Interface graphique** : Sélectionnez une image, choisissez un format de sortie, et prévisualisez le résultat.
 
-   1. Cliquez sur le bouton "Supprimer le fond".
-   2. Le script utilise le modèle de suppression de fond pour traiter l'image.
-   3. Une fois le traitement terminé, une boîte de dialogue vous informe que l'image modifiée a été enregistrée dans le dossier de sortie spécifié.
-   4. L'image sans fond s'affiche dans la zone de prévisualisation.
-    
-## 6. Gestion des Erreurs
-   
-Le script gère plusieurs erreurs courantes et affiche des messages pour vous aider à résoudre les problèmes :
+-   **Formats de sortie** :
 
-   • Erreur d'Ouverture d'Image : Si l'image sélectionnée n'est pas valide ou ne peut pas être ouverte, un message d'erreur s'affiche.
-   
-   • Erreur de Sélection de Fichier : Si aucun fichier valide n'est sélectionné, un message d'erreur vous demande de sélectionner une image valide.
-   
-   • Erreur lors de la Suppression du Fond : Si une erreur survient lors de la suppression du fond, un message d'erreur s'affiche avec les détails de l'erreur.
-   
-## 7. Configuration du Modèle
-Par défaut, le script utilise le modèle u2netp pour la suppression de fond. Vous pouvez changer le modèle en modifiant la ligne suivante dans le script :
+    -   **PNG** : Image raster avec transparence et opacité ajustable via un slider.
 
-`self.session = new_session('u2netp')`
+    -   **SVG** : Fichier vectoriel avec contours noirs basé sur les bords de l'objet.
 
+-   **Modèles personnalisables** : Choisissez parmi différents modèles rembg (u2netp, u2net, etc.).
 
-Remplacez 'u2netp' par le modèle de votre choix, par exemple 'u2net' ou 'deeplabv3'.
+-   **Prévisualisation** : Voir l'image originale et le résultat côte à côte.
 
-## 8. Personnalisation de l'Interface
-   
-Vous pouvez personnaliser l'apparence de l'interface en modifiant les styles des boutons et la couleur de fond dans la méthode init_ui. 
+Prérequis
+---------
 
-Par exemple :
+Avant d'exécuter le script, assurez-vous d'installer les dépendances nécessaires. Voici les étapes détaillées, avec une attention particulière à potrace pour éviter les problèmes rencontrés lors de la mise en place.
 
-```self.setStyleSheet("background-color: #f0f0f0;")  # Couleur de fond
-self.select_button.setStyleSheet("""
-    QPushButton {
-        background-color: #87ceeb;
-        color: #ffffff;
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-    }
-    QPushButton:hover {
-        background-color: #00bfff;
-    }
-""")
-```
+### Dépendances système (Linux)
 
+Ces commandes sont pour Ubuntu/Debian/Linux Mint. Adaptez-les selon votre distribution.
 
-## Les modèles disponibles pour « rembg » version 2.0.57 sont les suivants :
+1.  **Mettre à jour le système** :
 
-u2net  : Un modèle pré-entraîné pour les cas d'utilisation généraux.
+    `sudo apt-get update`
 
-u2netp  : Une version allégée du modèle u2net.
+2.  **Installer les outils de compilation et dépendances de développement** :
 
-u2net_human_seg  : Un modèle pré-entraîné pour la segmentation humaine.
+    `sudo apt-get install build-essential python3-dev pkg-config`
 
-u2net_cloth_seg  : Un modèle pré-entraîné pour l'analyse des vêtements à partir d'un portrait humain. Ici, les vêtements sont classés en 3 catégories : Haut du corps, bas du corps et corps entier.
+1.  **Installer potrace** :
 
-silueta  : Identique à u2net mais la taille est réduite à 43Mb.
+    `sudo apt-get install potrace libpotrace-dev`
 
-isnet-general-use  : Un nouveau modèle pré-entraîné pour les cas d'utilisation générale.
+    -   potrace est l'outil de vectorisation principal.
 
-isnet-anime : Une segmentation de haute précision pour les personnages d'anime.
+    -   libpotrace-dev fournit les fichiers de développement nécessaires pour pypotrace.
 
-sam : Un modèle pré-entraîné pour tous les cas d'utilisation.
+2.  **Installer libagg-dev** (essentiel pour pypotrace) :
 
+    `sudo apt-get install libagg-dev`
 
+    -   Sans cette bibliothèque, l'installation de pypotrace échouera avec une erreur comme Package 'libagg' not found.
+
+3.  **Vérifier l'installation de libagg** :
+
+    `pkg-config --modversion libagg`
+
+    -   Si une version s'affiche (ex. 2.5), tout est correct. Sinon, vérifiez que libagg.pc est dans /usr/lib/x86_64-linux-gnu/pkgconfig avec :
+
+        `ls /usr/lib/x86_64-linux-gnu/pkgconfig/libagg.pc`\
+        Si absent, réinstallez libagg-dev ou ajustez PKG_CONFIG_PATH :
+
+        `export`` PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig:``$PKG_CONFIG_PATH`
+
+### Dépendances Python
+
+Utilisez Python 3.8+ (testé avec 3.12). Créez un environnement virtuel si souhaité :
+
+`python3 -m venv venv ``source`` venv/bin/activate`
+
+Installez les bibliothèques Python :
+
+`pip install numpy pillow pyqt5 rembg pypotrace`
+
+-   numpy : Pour manipuler les tableaux d'images.
+
+-   pillow : Pour traiter les images.
+
+-   pyqt5 : Pour l'interface graphique.
+
+-   rembg : Pour supprimer l'arrière-plan.
+
+-   pypotrace : Interface Python pour potrace. Si l'installation échoue, assurez-vous que libagg-dev et libpotrace-dev sont bien présents (voir ci-dessus).
+
+### macOS
+
+-   Installez potrace via Homebrew :
+
+    `brew install potrace`
+
+-   Installez les dépendances Python avec pip comme ci-dessus. Si pypotrace échoue, ajoutez libagg manuellement (Homebrew ne fournit pas toujours libagg par défaut).
+
+### Windows
+
+-   Téléchargez potrace depuis [le site officiel](http://potrace.sourceforge.net/) et ajoutez-le au PATH.
+
+-   Installez les dépendances Python avec pip dans un environnement virtuel. pypotrace peut nécessiter un compilateur (ex. Visual Studio Build Tools).
+
+Installation
+------------
+
+2.  **Lancez le script** :
+
+    `python3 remove_background_1.``7``.py`
+
+Utilisation
+-----------
+
+1.  **Lancer l'application** : Une fenêtre s'ouvre avec le titre "Remove background 1.2".
+
+2.  **Sélectionner une image** :
+
+    -   Cliquez sur **"Sélectionner un fichier image"**.
+
+    -   Choisissez une image (JPG, JPEG, PNG).
+
+    -   Sélectionnez un dossier de sortie.
+
+3.  **Configurer les options** :
+
+    -   **Modèle** : Choisissez un modèle rembg dans la liste déroulante (ex. u2netp par défaut).
+
+    -   **Opacité du fond** : Ajustez le slider (0 = transparent, 255 = opaque). Affecte le PNG et la prévisualisation.
+
+    -   **Format de sortie** : Sélectionnez PNG (raster) ou SVG (vectoriel).
+
+4.  **Supprimer le fond** :
+
+    -   Cliquez sur **"Supprimer le fond"**.
+
+    -   Une fois terminé, un message confirme la sauvegarde, et la prévisualisation s'affiche à droite (l'original est à gauche).
+
+5.  **Vérifier le résultat** :
+
+    -   **PNG** : Ouvre le fichier dans visionneuse d'images pour voir la transparence.
+
+    -   **SVG** : Ouvre-le dans un éditeur comme Inkscape pour voir les contours vectoriels (noir sur fond transparent).
+
+Remarques
+---------
+
+-   **SVG** : Les contours sont en noir, basés sur le canal alpha. Les couleurs originales ne sont pas conservées (vectorisation binaire).
+
+-   **Prévisualisation** : Pour SVG, un PNG temporaire est généré pour l'affichage, car PyQt5 ne supporte pas les SVG nativement.
+
+Dépannage
+---------
+
+-   **Erreur "Package 'libagg' not found"** :
+
+    -   Installez libagg-dev (voir Prérequis).
+
+-   **Erreur "ModuleNotFoundError: No module named 'potrace'"** :
+
+    -   Vérifiez que pypotrace est installé avec pip install pypotrace.
+
+-   **Erreur lors de la vectorisation** :
+
+    -   Assurez-vous que potrace est dans votre PATH (which potrace sur Linux devrait retourner un chemin).
