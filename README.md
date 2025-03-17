@@ -109,7 +109,7 @@ Installation
 Utilisation
 -----------
 
-1.  **Lancer l'application** : Une fenêtre s'ouvre avec le titre "Remove background 1.2".
+1.  **Lancer l'application** : Une fenêtre s'ouvre avec le titre "Remove background 1.7".
 
 2.  **Sélectionner une image** :
 
