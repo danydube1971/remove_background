@@ -67,7 +67,9 @@ Ces commandes sont pour Ubuntu/Debian/Linux Mint. Adaptez-les selon votre distri
 
 Utilisez Python 3.8+ (testé avec 3.12). Créez un environnement virtuel si souhaité :
 
-`python3 -m venv venv ``source`` venv/bin/activate`
+`python3 -m venv venv`
+
+`source venv/bin/activate`
 
 Installez les bibliothèques Python :
 
@@ -102,7 +104,7 @@ Installation
 
 2.  **Lancez le script** :
 
-    `python3 remove_background_1.``7``.py`
+    `python3 remove_background_1.7.py`
 
 Utilisation
 -----------
